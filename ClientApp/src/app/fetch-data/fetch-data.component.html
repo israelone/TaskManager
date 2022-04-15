@@ -1,0 +1,22 @@
+<h1 id="tableLabel">Tasks</h1>
+
+<p *ngIf="!tasks"><em>Loading...</em></p>
+<button></button>
+<table class="table table-striped" aria-labelledby="tableLabel" *ngIf="tasks">
+  <thead>
+    <tr>
+      <th>Task Name</th>
+      <th>Date Created</th>
+      <th>Due Date</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.name }}</td>
+      <td>{{ task.dateCreated }}</td>
+      <td>{{ task.dueDate }}</td>
+      <td>{{ task.status }}</td>
+    </tr>
+  </tbody>
+</table>
