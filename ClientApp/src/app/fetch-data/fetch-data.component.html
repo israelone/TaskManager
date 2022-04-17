@@ -1,7 +1,8 @@
 <h1 id="tableLabel">Tasks</h1>
 
+<app-task-form *ngIf="showForm"></app-task-form>
 <p *ngIf="!tasks"><em>Loading...</em></p>
-<button></button>
+<button class="btn btn-primary" (click)="toggleForm()">Add Task +</button>
 <table class="table table-striped" aria-labelledby="tableLabel" *ngIf="tasks">
   <thead>
     <tr>

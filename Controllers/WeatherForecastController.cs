@@ -29,6 +29,16 @@ namespace TodoList.Controllers
 
         }
 
+        [HttpPost]
+        public void Post(Todo obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Todo.Add(obj);
+                _context.SaveChanges(); 
+            }
+        }
+
 
     }
 }

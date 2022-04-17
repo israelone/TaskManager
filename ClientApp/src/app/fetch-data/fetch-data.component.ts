@@ -1,5 +1,6 @@
 import { Component, Inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Task } from "../interface/task";
 
 @Component({
   selector: "app-fetch-data",
@@ -7,6 +8,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class FetchDataComponent {
   public tasks: Task[];
+  public showForm: boolean = false;
 
   constructor(http: HttpClient, @Inject("BASE_URL") baseUrl: string) {
     http.get<Task[]>(baseUrl + "weatherforecast").subscribe(
@@ -16,12 +18,9 @@ export class FetchDataComponent {
       (error) => console.error(error)
     );
   }
-}
 
-interface Task {
-  id: number;
-  name: string;
-  dateCreated: string;
-  dueDate: string;
-  status: string;
+  toggleForm() {
+    console.log("hello");
+    this.showForm = !this.showForm;
+  }
 }
